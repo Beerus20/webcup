@@ -1,5 +1,5 @@
-all		: run\:server
-			npm start
+run		:
+			npm run dev
 
 run\:server	:
 			cd ./server && npm run dev
