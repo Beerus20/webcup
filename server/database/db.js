@@ -1,16 +1,13 @@
 const mongoose = require("mongoose");
 
-module.exports = () => {
-    const connectionParams = {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-    };
-
+module.exports = async () => {
     try {
-        mongoose.connect(process.env.DB, connectionParams);
-        console.log("Connected to database successfully");
-    } catch(error) {
-        console.log(error);
-        console.log("Could not connect to database");
+        await mongoose.connect(process.env.MONGODB_URI, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true
+        });
+        console.log("Connected to MongoDB Atlas successfully");
+    } catch (error) {
+        console.error("Error connecting to MongoDB Atlas:", error);
     }
 };
