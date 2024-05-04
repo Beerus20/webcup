@@ -12,14 +12,16 @@ const PORT = process.env['PORT'] || 3000;
 // Database
 connection();
 
+
+
 //Cors
 app.use(cors());
 app.use(express.json());
 
 //Routes
 app.use("/user", userRoutes);
-app.use("/api/login", loginRoutes); 
-app.use("/api/register", authRoutes); 
+app.use("/api/login", loginRoutes);
+app.use("/api/register", authRoutes);
 app.get("/", (req, res) => {
 	res.send("HELLO WORLD");
 })
